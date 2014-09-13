@@ -1,0 +1,11 @@
+#!/bin/bash
+//Use as ./build <revision> <bintrayUser> <bintrayKey>
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+git clone https://github.com/Azanor/Baubles.git ./Baubles
+cd ./Baubles
+git reset --hard "$1"
+cd ../
+
+./gradlew -PbintrayUser="$2" -PbintrayKey="$3" :Baubles:setupDecompWorkspace
+./gradlew -PbintrayUser="$2" -PbintrayKey="$3" :Baubles:build :Baubles:bintrayUpload

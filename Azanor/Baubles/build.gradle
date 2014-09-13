@@ -1,0 +1,31 @@
+plugins {
+  id "com.jfrog.bintray" version "0.5"
+}
+
+if (gradle.gradleVersion != "2.1") throw Exception("Use gradle 2.1")
+
+project(":Baubles") {
+    apply plugin: "java"
+    apply plugin: "com.jfrog.bintray"
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    tasks.getByPath(":Baubles:deobfJar").classifier = "deobf"
+    tasks.getByPath(":Baubles:deobfJar").appendix = ""
+
+    bintray {
+        user = bintrayUser //set by passing -PbintrayUser=<user>
+        key  = bintrayKey //set by passing -PbintrayKey=<key>
+        configurations = ["archives"]
+        publish = true
+        pkg {
+            repo = "ModMaven"
+            name = "Baubles"
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.1"
+}
