@@ -2,9 +2,9 @@
 #Use as ./build <revision> <bintrayUser> <bintrayKey>
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
-git clone https://github.com/Victorious3/VChat.git ./VChat
-cd ./VChat
+git clone https://github.com/Victorious3/VChat.git ./vChat
+cd ./vChat
 git reset --hard "$1"
 cd ../
 
-./gradlew -PbintrayUser="$2" -PbintrayKey="$3" :VChat:build :VChat:bintrayUpload
+./gradlew -PbintrayUser="$2" -PbintrayKey="$3" :vChat:build :vChat:bintrayUpload
