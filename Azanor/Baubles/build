@@ -4,6 +4,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 git clone https://github.com/Azanor/Baubles.git ./Baubles
 cd ./Baubles
+git pull origin master
 git reset --hard "$1"
 cd ../
 

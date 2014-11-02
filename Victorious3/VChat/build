@@ -4,6 +4,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 git clone https://github.com/Victorious3/VChat.git ./vChat
 cd ./vChat
+git pull origin master
 git reset --hard "$1"
 cd ../
 
